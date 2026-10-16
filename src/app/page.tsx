@@ -4,6 +4,7 @@ import { FinalCta } from "@/components/FinalCta";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { HeroBanner } from "@/components/HeroBanner";
 import { Services } from "@/components/Services";
 import { Specialties } from "@/components/Specialties";
 import { Steps } from "@/components/Steps";
@@ -17,6 +18,7 @@ export default function Home() {
       <TopBar />
       <Header />
       <main>
+        <HeroBanner />
         <Hero />
         <Services />
         <Specialties />

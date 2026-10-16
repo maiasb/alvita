@@ -15,7 +15,7 @@ const i = (n: number) => ({ "--i": n }) as React.CSSProperties;
 export function Hero() {
   return (
     <section id="topo" className="bg-paper">
-      <div className="mx-auto grid max-w-[90rem] items-center gap-12 px-5 pb-16 pt-12 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:pb-24 lg:pt-16">
+      <div className="mx-auto grid max-w-[90rem] items-center gap-12 px-5 pb-16 pt-12 sm:px-8 md:pb-14 md:pt-14">
         <div>
           <p
             className="rise inline-flex items-center gap-2 rounded-full bg-mist px-3.5 py-1.5 text-sm font-semibold text-brand"
@@ -64,14 +64,14 @@ export function Hero() {
           </dl>
         </div>
 
-        <div className="rise relative mx-auto w-full max-w-lg lg:max-w-none" style={i(2)}>
+        <div className="rise relative mx-auto w-full max-w-lg md:hidden" style={i(2)}>
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-mist shadow-[0_40px_80px_-40px_rgba(14,35,71,.55)]">
             <Image
               src={asset("/img/clinica/consultorio-pediatrico.png")}
               alt="Consultório pediátrico da Alvita, com mural colorido de sol, elefante e zebra"
               fill
               priority
-              sizes="(min-width:1024px) 45vw, 90vw"
+              sizes="90vw"
               className="object-cover object-[25%_50%]"
             />
           </div>

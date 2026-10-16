@@ -1,59 +1,71 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #f6fafd;
-  --mist: #e8f1fa;
-  --ink: #0e2347;
+  --navy: #0a1a3a;
+  --navy2: #0f2a5c;
   --blue: #2354a1;
   --sky: #5ea6de;
   --teal: #70b39f;
   --lime: #a6c136;
-  --text: #1c2b45;
-  --muted: #4d5f7d;
+  --ink: #0f1f3a;
+  --muted: #55657d;
+  --paper: #ffffff;
+  --soft: #eff5fb;
+  --line: #d9e3ee;
 }
 
 @theme inline {
-  --color-paper: var(--paper);
-  --color-mist: var(--mist);
-  --color-ink: var(--ink);
+  --color-navy: var(--navy);
+  --color-navy2: var(--navy2);
   --color-brand: var(--blue);
   --color-sky: var(--sky);
   --color-teal: var(--teal);
   --color-lime: var(--lime);
-  --color-text: var(--text);
+  --color-ink: var(--ink);
   --color-muted: var(--muted);
-  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-bricolage), var(--font-figtree), ui-sans-serif, sans-serif;
+  --color-paper: var(--paper);
+  --color-soft: var(--soft);
+  --color-mist: var(--soft);
+  --color-line: var(--line);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: 6rem;
 }
 
 body {
+  margin: 0;
   background: var(--paper);
-  color: var(--text);
+  color: var(--ink);
   font-family: var(--font-sans);
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Contêiner do layout: 1160px com 20px de respiro */
+.wrap {
+  width: min(72.5rem, calc(100% - 2.5rem));
+  margin-inline: auto;
 }
 
 :focus-visible {
   outline: 3px solid var(--sky);
   outline-offset: 3px;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 ::selection {
   background: var(--lime);
-  color: var(--ink);
+  color: var(--navy);
 }
 
-/* Entrada do hero: a única animação automática da página. */
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -61,31 +73,9 @@ body {
   }
 }
 
-@keyframes ring-draw {
-  from {
-    stroke-dashoffset: 1;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
 .rise {
-  animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-  animation-delay: calc(var(--i, 0) * 110ms);
-}
-
-.ring-draw {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: ring-draw 1.6s cubic-bezier(0.5, 0, 0.1, 1) 0.2s forwards;
-}
-
-.no-scrollbar {
-  scrollbar-width: none;
-}
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 100ms);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -95,11 +85,9 @@ body {
   .rise {
     animation: none;
   }
-  .ring-draw {
-    animation: none;
-    stroke-dashoffset: 0;
-  }
-  * {
-    transition-duration: 0.01ms !important;
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
   }
 }

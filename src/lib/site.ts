@@ -25,42 +25,29 @@ export const hours = [
   { label: "Domingo", days: [0], open: 0, close: 0, text: "Fechado" },
 ] as const;
 
-export type SpecialtyGroup = { title: string; note: string; items: string[] };
-
-export const specialtyGroups: SpecialtyGroup[] = [
-  {
-    title: "Clínica e família",
-    note: "Para começar e acompanhar",
-    items: ["Clínica Médica", "Medicina de Família", "Geriatria", "Pediatria"],
-  },
-  {
-    title: "Saúde da mulher",
-    note: "Da consulta de rotina ao pré-natal",
-    items: ["Ginecologia", "Obstetrícia", "Mastologia"],
-  },
-  {
-    title: "Coração e circulação",
-    note: "Pressão, veias e sangue",
-    items: ["Cardiologia", "Angiologia", "Hematologia"],
-  },
-  {
-    title: "Digestão e metabolismo",
-    note: "Do intestino ao hormônio",
-    items: ["Gastroenterologia", "Proctologia", "Endocrinologia", "Nutrição"],
-  },
-  {
-    title: "Pele, respiração e sentidos",
-    note: "Pele, nariz, garganta e pulmão",
-    items: ["Dermatologia", "Otorrinolaringologia", "Pneumologia"],
-  },
-  {
-    title: "Movimento e mente",
-    note: "Ossos, articulações e emoções",
-    items: ["Ortopedia", "Reumatologia", "Fisioterapia", "Psicologia"],
-  },
+export const allSpecialties = [
+  "Clínica Médica",
+  "Angiologia",
+  "Dermatologia",
+  "Endocrinologia",
+  "Gastroenterologia",
+  "Geriatria",
+  "Ginecologia",
+  "Obstetrícia",
+  "Hematologia",
+  "Nutrição",
+  "Otorrinolaringologia",
+  "Pediatria",
+  "Pneumologia",
+  "Proctologia",
+  "Psicologia",
+  "Fisioterapia",
+  "Ortopedia",
+  "Reumatologia",
+  "Mastologia",
+  "Cardiologia",
+  "Medicina de Família",
 ];
-
-export const allSpecialties = specialtyGroups.flatMap((g) => g.items);
 
 export type ServiceIcon =
   | "estetoscopio"
@@ -86,10 +73,10 @@ export const services: { id: ServiceIcon; title: string; text: string; message: 
     message: "um exame laboratorial",
   },
   {
-    id: "ultrassom",
-    title: "Ultrassonografia",
-    text: "Inclui ultrassom 3D e 4D.",
-    message: "uma ultrassonografia",
+    id: "dentista",
+    title: "Odontologia",
+    text: "Dentista, ortodontia e endodontia na própria clínica.",
+    message: "uma consulta de odontologia",
   },
   {
     id: "endoscopia",
@@ -104,16 +91,16 @@ export const services: { id: ServiceIcon; title: string; text: string; message: 
     message: "uma colonoscopia",
   },
   {
+    id: "ultrassom",
+    title: "Ultrassonografia",
+    text: "Inclui ultrassom 3D e 4D.",
+    message: "uma ultrassonografia",
+  },
+  {
     id: "fisioterapia",
     title: "Fisioterapia",
     text: "Reabilitação e cuidado com o movimento, com profissionais da casa.",
     message: "fisioterapia",
-  },
-  {
-    id: "dentista",
-    title: "Odontologia",
-    text: "Dentista, ortodontia e endodontia na própria clínica.",
-    message: "uma consulta de odontologia",
   },
   {
     id: "eletro",

@@ -1,58 +1,75 @@
-import { specialtyGroups } from "@/lib/site";
-import { specialtyMessage, whatsappLink } from "@/lib/whatsapp";
+"use client";
 
-const panels = [
-  "bg-lime/30",
-  "bg-sky/25",
-  "bg-teal/30",
-  "bg-sky/25",
-  "bg-lime/30",
-  "bg-teal/30",
-];
+import { useState } from "react";
+import { allSpecialties, clinic } from "@/lib/site";
+import { generalMessage, specialtyMessage, whatsappLink } from "@/lib/whatsapp";
+import { SearchIcon } from "./icons";
+
+const norm = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
 export function Specialties() {
+  const [q, setQ] = useState("");
+  const list = allSpecialties.filter((s) => norm(s).includes(norm(q.trim())));
+
   return (
-    <section id="especialidades" className="bg-mist/60 py-20 sm:py-28">
-      <div className="mx-auto max-w-[110rem] px-5 sm:px-8 xl:px-12">
-        <div className="grid gap-8 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-14">
-          <p className="font-display text-[7rem] font-extrabold leading-[0.8] tracking-[-0.06em] text-brand sm:text-[10rem]" aria-hidden>
-            21
+    <section id="especialidades" className="bg-paper py-20 sm:py-24">
+      <div className="mx-auto grid max-w-[90rem] gap-10 px-5 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+        <div>
+          <p className="text-sm font-bold uppercase tracking-[0.12em] text-brand">Especialidades</p>
+          <h2 className="mt-2 font-display text-3xl font-semibold leading-[1.1] tracking-[-0.015em] text-ink sm:text-[2.6rem]">
+            Encontre o especialista certo
+          </h2>
+          <p className="mt-4 max-w-sm leading-relaxed text-muted">
+            Digite o que procura e agende direto com nossa equipe.
           </p>
-          <div className="max-w-2xl">
-            <h2 className="font-display text-4xl font-extrabold leading-[1.04] tracking-[-0.025em] text-ink sm:text-6xl">
-              especialidades para a família inteira.
-            </h2>
-            <p className="mt-5 text-lg leading-relaxed text-muted">
-              Toque na especialidade para abrir o WhatsApp com a mensagem já escrita. A equipe responde com os
-              horários disponíveis.
-            </p>
+
+          <label htmlFor="busca-especialidade" className="sr-only">
+            Buscar especialidade
+          </label>
+          <div className="relative mt-6 max-w-md">
+            <SearchIcon className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-muted" />
+            <input
+              id="busca-especialidade"
+              type="search"
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+              placeholder="Ex.: cardiologia"
+              autoComplete="off"
+              className="w-full rounded-full border border-ink/15 bg-white py-3.5 pl-12 pr-4 text-base text-ink placeholder:text-muted/70 focus:border-brand focus:outline-none"
+            />
           </div>
         </div>
 
-        <div className="mt-14 columns-1 gap-4 md:columns-2 lg:columns-3 [&>*]:mb-4">
-          {specialtyGroups.map((g, idx) => (
-            <div
-              key={g.title}
-              className={`break-inside-avoid rounded-[2rem] p-6 sm:p-7 ${panels[idx]} ${idx % 2 ? "rounded-tr-[4rem]" : "rounded-tl-[4rem]"}`}
-            >
-              <h3 className="font-display text-2xl font-extrabold text-ink">{g.title}</h3>
-              <p className="mt-1 text-ink/70">{g.note}</p>
-              <ul className="mt-5 flex flex-wrap gap-2.5">
-                {g.items.map((item) => (
-                  <li key={item}>
-                    <a
-                      href={whatsappLink(specialtyMessage(item))}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block rounded-full bg-white px-4 py-2.5 font-semibold text-ink shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-brand hover:text-white hover:shadow-lg hover:shadow-brand/30"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        <div aria-live="polite">
+          {list.length > 0 ? (
+            <ul className="flex flex-wrap content-start gap-2.5">
+              {list.map((s) => (
+                <li key={s}>
+                  <a
+                    href={whatsappLink(specialtyMessage(s))}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block rounded-full border border-ink/15 bg-white px-4 py-2.5 font-semibold text-ink transition duration-200 hover:-translate-y-0.5 hover:border-brand hover:bg-brand hover:text-white"
+                  >
+                    {s}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-muted">
+              Não encontramos &ldquo;{q}&rdquo; na lista.{" "}
+              <a
+                href={whatsappLink(generalMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-brand underline underline-offset-4"
+              >
+                Pergunte pelo WhatsApp
+              </a>{" "}
+              ou ligue para {clinic.phoneDisplay}.
+            </p>
+          )}
         </div>
       </div>
     </section>

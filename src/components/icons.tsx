@@ -91,3 +91,29 @@ export const EcgIcon = (p: P) => (
     <path d="M3 12h4l2-6 4 12 2-6h6" />
   </svg>
 );
+
+export const ShieldIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <path d="M12 3 5 6v6c0 4.2 3 7.6 7 9 4-1.4 7-4.8 7-9V6l-7-3Z" />
+    <path d="m9 12 2 2 4-4" />
+  </svg>
+);
+
+export const SearchIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <circle cx="11" cy="11" r="7" />
+    <path d="m20 20-3.5-3.5" />
+  </svg>
+);
+
+export const CheckIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <path d="m5 12 5 5 9-10" />
+  </svg>
+);
+
+export const PlusIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <path d="M12 5v14M5 12h14" />
+  </svg>
+);

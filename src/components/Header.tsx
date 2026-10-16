@@ -8,11 +8,11 @@ import { CloseIcon, MenuIcon, PhoneIcon, WhatsAppIcon } from "./icons";
 import { asset } from "@/lib/asset";
 
 const links = [
-  { href: "#servicos", label: "Exames e serviços" },
+  { href: "#servicos", label: "Serviços" },
   { href: "#especialidades", label: "Especialidades" },
   { href: "#equipe", label: "Equipe" },
-  { href: "#clinica", label: "A clínica" },
-  { href: "#contato", label: "Como chegar" },
+  { href: "#como-agendar", label: "Como agendar" },
+  { href: "#duvidas", label: "Dúvidas" },
 ];
 
 export function Header() {
@@ -35,13 +35,13 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-40 transition-colors duration-300 ${
-        scrolled || open ? "bg-paper/90 backdrop-blur-md shadow-[0_1px_0_rgba(14,35,71,.08)]" : "bg-transparent"
+      className={`sticky top-0 z-40 border-b border-ink/10 bg-paper/90 backdrop-blur-md transition-shadow duration-300 ${
+        scrolled || open ? "shadow-[0_8px_24px_-16px_rgba(14,35,71,.35)]" : ""
       }`}
     >
-      <div className="mx-auto flex h-18 max-w-[110rem] items-center justify-between gap-6 px-5 sm:px-8 xl:px-12">
+      <div className="mx-auto flex h-18 max-w-[90rem] items-center justify-between gap-6 px-5 sm:px-8">
         <a href="#topo" aria-label="Alvita, início" className="shrink-0">
-          <Image src={asset("/img/logo.svg")} alt="Alvita" width={530} height={163} priority className="h-10 w-auto sm:h-11" />
+          <Image src={asset("/img/logo.svg")} alt="Alvita" width={530} height={163} priority className="h-9 w-auto sm:h-10" />
         </a>
 
         <nav aria-label="Principal" className="hidden items-center gap-1 lg:flex">
@@ -49,7 +49,7 @@ export function Header() {
             <a
               key={l.href}
               href={l.href}
-              className="rounded-full px-3.5 py-2 text-[0.95rem] font-medium text-ink/80 transition-colors hover:bg-mist hover:text-brand"
+              className="rounded-full px-4 py-2 text-[0.95rem] font-medium text-muted transition-colors hover:text-brand"
             >
               {l.label}
             </a>
@@ -58,17 +58,10 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <a
-            href={`tel:${clinic.phoneTel}`}
-            className="hidden items-center gap-2 rounded-full px-3 py-2 text-[0.95rem] font-semibold text-ink transition-colors hover:text-brand xl:flex"
-          >
-            <PhoneIcon className="size-4.5" />
-            {clinic.phoneDisplay}
-          </a>
-          <a
             href={whatsappLink(generalMessage)}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-full bg-lime px-5 py-2.5 text-[0.95rem] font-bold text-ink transition hover:brightness-95 active:scale-[.98] sm:inline-flex"
+            className="hidden items-center gap-2 rounded-full bg-lime px-5 py-2.5 text-[0.95rem] font-bold text-ink shadow-[0_8px_20px_-10px_rgba(166,193,54,.9)] transition hover:brightness-95 active:scale-[.98] sm:inline-flex"
           >
             <WhatsAppIcon className="size-5" />
             Agendar

@@ -1,17 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Figtree } from "next/font/google";
+import { Inter } from "next/font/google";
 import { addressLine, clinic } from "@/lib/site";
 import "./globals.css";
 import { asset } from "@/lib/asset";
 
-const figtree = Figtree({
-  variable: "--font-figtree",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -28,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#2354a1",
+  themeColor: "#0a1a3a",
 };
 
 const jsonLd = {
@@ -59,8 +53,8 @@ const jsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pt-BR" className={`${figtree.variable} ${bricolage.variable} h-full`}>
-      <body className="min-h-full flex flex-col" suppressHydrationWarning>
+    <html lang="pt-BR" className={`${inter.variable} h-full`}>
+      <body suppressHydrationWarning>
         {children}
         <script
           type="application/ld+json"

@@ -1,3 +1,5 @@
+import { asset } from "./asset";
+
 export const clinic = {
   name: "Alvita",
   tagline: "A sua clínica",
@@ -147,10 +149,10 @@ export const team: { name: string; role: string; photo: string }[] = [
 ];
 
 export const gallery = [
-  { src: "/img/clinica/clinica-4.png", alt: "Fachada da Alvita, verde e azul, com estacionamento na frente", w: 1010, h: 716 },
-  { src: "/img/clinica/clinica-2.png", alt: "Recepção ampla com cadeiras e TVs, com pacientes aguardando", w: 1009, h: 716 },
-  { src: "/img/clinica/clinica-3.png", alt: "Profissional do laboratório manuseando amostras", w: 675, h: 479 },
-  { src: "/img/clinica/clinica-5.png", alt: "Atendimento odontológico no consultório da clínica", w: 677, h: 480 },
-  { src: "/img/clinica/consultorio-pediatrico.png", alt: "Consultório pediátrico com mural colorido de sol e animais", w: 1010, h: 716 },
-  { src: "/img/clinica/clinica-6.png", alt: "Lanchonete da clínica com geladeira e vitrines de lanches", w: 675, h: 479 },
+  { src: asset("/img/clinica/clinica-4.png"), alt: "Fachada da Alvita, verde e azul, com estacionamento na frente", w: 1010, h: 716 },
+  { src: asset("/img/clinica/clinica-2.png"), alt: "Recepção ampla com cadeiras e TVs, com pacientes aguardando", w: 1009, h: 716 },
+  { src: asset("/img/clinica/clinica-3.png"), alt: "Profissional do laboratório manuseando amostras", w: 675, h: 479 },
+  { src: asset("/img/clinica/clinica-5.png"), alt: "Atendimento odontológico no consultório da clínica", w: 677, h: 480 },
+  { src: asset("/img/clinica/consultorio-pediatrico.png"), alt: "Consultório pediátrico com mural colorido de sol e animais", w: 1010, h: 716 },
+  { src: asset("/img/clinica/clinica-6.png"), alt: "Lanchonete da clínica com geladeira e vitrines de lanches", w: 675, h: 479 },
 ] as const;

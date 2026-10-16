@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { team } from "@/lib/site";
+import { asset } from "@/lib/asset";
 
 const rings = ["ring-lime", "ring-sky", "ring-teal"];
 
@@ -24,7 +25,7 @@ export function Team() {
                 className={`relative aspect-square overflow-hidden rounded-t-full rounded-b-[1.5rem] bg-mist ring-4 ring-offset-4 ring-offset-paper transition duration-300 group-hover:-translate-y-1.5 ${rings[idx % 3]}`}
               >
                 <Image
-                  src={`/img/medicos/${p.photo}.png`}
+                  src={asset(`/img/medicos/${p.photo}.png`)}
                   alt={`${p.name}, ${p.role}`}
                   fill
                   sizes="(min-width:1280px) 14vw, (min-width:1024px) 22vw, (min-width:640px) 30vw, 45vw"

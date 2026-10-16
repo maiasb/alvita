@@ -6,13 +6,14 @@ import { allSpecialties, clinic } from "@/lib/site";
 import { generalMessage, specialtyMessage, whatsappLink } from "@/lib/whatsapp";
 import { ArrowIcon, ClockIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "./icons";
 import { OpenStatus } from "./OpenStatus";
+import { asset } from "@/lib/asset";
 
 const i = (n: number) => ({ "--i": n }) as React.CSSProperties;
 
 function Portrait({ photo, alt, className, sizes }: { photo: string; alt: string; className: string; sizes: string }) {
   return (
     <div className={`absolute overflow-hidden bg-mist ${className}`}>
-      <Image src={`/img/medicos/${photo}.png`} alt={alt} fill sizes={sizes} priority className="origin-top scale-[1.32] object-cover object-top" />
+      <Image src={asset(`/img/medicos/${photo}.png`)} alt={alt} fill sizes={sizes} priority className="origin-top scale-[1.32] object-cover object-top" />
     </div>
   );
 }
@@ -142,7 +143,7 @@ export function Hero() {
             />
             <div className="rise absolute bottom-[3%] right-0 z-10 h-[42%] w-[47%] overflow-hidden rounded-[2rem] rounded-br-[5rem] ring-4 ring-lime" style={i(4)}>
               <Image
-                src="/img/clinica/consultorio-pediatrico.png"
+                src={asset("/img/clinica/consultorio-pediatrico.png")}
                 alt="Consultório pediátrico da Alvita, com mural colorido de sol, elefante e zebra"
                 fill
                 priority

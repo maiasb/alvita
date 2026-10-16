@@ -25,3 +25,9 @@ Cores da marca, extraídas do logotipo: azul `#2354A1`, azul-claro `#5EA6DE`, ve
 ## Como funciona a conversão
 
 Todo botão de agendamento abre `wa.me` com a mensagem já escrita (especialidade ou serviço escolhido). O formulário de contato também envia pelo WhatsApp: não há backend.
+
+## Publicação (GitHub Pages)
+
+Cada push na `main` roda `.github/workflows/pages.yml`, que gera o site estático (`PAGES=true`, pasta `out/`) e publica em https://maiasb.github.io/alvita/.
+
+Para testar o build do Pages localmente: `PAGES=true npm run build`. Em dev e em hospedagem comum (Vercel, VPS) o `basePath` fica vazio.

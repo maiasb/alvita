@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Figtree } from "next/font/google";
 import { addressLine, clinic } from "@/lib/site";
 import "./globals.css";
+import { asset } from "@/lib/asset";
 
 const figtree = Figtree({
   variable: "--font-figtree",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   title,
   description,
   openGraph: { title, description, locale: "pt_BR", type: "website" },
-  icons: { icon: "/img/favicon.png", apple: "/img/favicon.png" },
+  icons: { icon: asset("/img/favicon.png"), apple: asset("/img/favicon.png") },
 };
 
 export const viewport: Viewport = {

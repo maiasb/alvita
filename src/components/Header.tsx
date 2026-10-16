@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { clinic } from "@/lib/site";
 import { generalMessage, whatsappLink } from "@/lib/whatsapp";
 import { CloseIcon, MenuIcon, PhoneIcon, WhatsAppIcon } from "./icons";
+import { asset } from "@/lib/asset";
 
 const links = [
   { href: "#servicos", label: "Exames e serviços" },
@@ -40,7 +41,7 @@ export function Header() {
     >
       <div className="mx-auto flex h-18 max-w-[110rem] items-center justify-between gap-6 px-5 sm:px-8 xl:px-12">
         <a href="#topo" aria-label="Alvita, início" className="shrink-0">
-          <Image src="/img/logo.svg" alt="Alvita" width={530} height={163} priority className="h-10 w-auto sm:h-11" />
+          <Image src={asset("/img/logo.svg")} alt="Alvita" width={530} height={163} priority className="h-10 w-auto sm:h-11" />
         </a>
 
         <nav aria-label="Principal" className="hidden items-center gap-1 lg:flex">

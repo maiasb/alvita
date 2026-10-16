@@ -2,6 +2,7 @@ import Image from "next/image";
 import { services, type ServiceIcon } from "@/lib/site";
 import { serviceMessage, whatsappLink } from "@/lib/whatsapp";
 import { ArrowIcon, EcgIcon, PhysioIcon } from "./icons";
+import { asset } from "@/lib/asset";
 
 const files: Partial<Record<ServiceIcon, string>> = {
   estetoscopio: "estetoscopio-1",
@@ -15,12 +16,12 @@ const files: Partial<Record<ServiceIcon, string>> = {
 /** Cada serviço tem cor, tamanho e (quando há foto real) imagem própria. */
 const looks: Record<ServiceIcon, { tile: string; bg: string; text: string; photo?: string }> = {
   estetoscopio: { tile: "sm:col-span-2 lg:row-span-2", bg: "bg-lime", text: "text-ink" },
-  microscopio: { tile: "", bg: "bg-ink", text: "text-white", photo: "/img/clinica/clinica-3.png" },
+  microscopio: { tile: "", bg: "bg-ink", text: "text-white", photo: asset("/img/clinica/clinica-3.png") },
   ultrassom: { tile: "", bg: "bg-sky", text: "text-ink" },
   endoscopia: { tile: "", bg: "bg-white", text: "text-ink" },
   colonoscopia: { tile: "", bg: "bg-teal", text: "text-ink" },
   fisioterapia: { tile: "", bg: "bg-white", text: "text-ink" },
-  dentista: { tile: "sm:col-span-2 lg:row-span-2", bg: "bg-ink", text: "text-white", photo: "/img/clinica/clinica-5.png" },
+  dentista: { tile: "sm:col-span-2 lg:row-span-2", bg: "bg-ink", text: "text-white", photo: asset("/img/clinica/clinica-5.png") },
   eletro: { tile: "lg:row-span-2", bg: "bg-brand", text: "text-white" },
 };
 
@@ -30,7 +31,7 @@ function Icon({ id }: { id: ServiceIcon }) {
   return (
     <span className={chip} aria-hidden>
       {file ? (
-        <Image src={`/img/servicos/${file}.svg`} alt="" width={36} height={36} className="size-8" />
+        <Image src={asset(`/img/servicos/${file}.svg`)} alt="" width={36} height={36} className="size-8" />
       ) : id === "fisioterapia" ? (
         <PhysioIcon className="size-8 text-lime" strokeWidth={1.5} />
       ) : (
